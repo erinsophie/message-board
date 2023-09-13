@@ -1,4 +1,4 @@
-const fetchMessages = require("../controllers/getMessages");
+const getMessages = require("../controllers/getMessages");
 const newMessage = require("../controllers/newMessage");
 const express = require("express");
 const router = express.Router();
