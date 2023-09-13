@@ -9,7 +9,10 @@ connectDB();
 // start express server
 const app = express();
 
+// middlewares
 app.use(cors());
+// parses JSON back into an object before it reaches the controllers
+// so its values can be accessed
 app.use(express.json());
 
 // all routes that start with / will use the messageRoutes
