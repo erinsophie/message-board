@@ -15,8 +15,8 @@ app.use(cors());
 // so its values can be accessed
 app.use(express.json());
 
-// all routes that start with / will use the messageRoutes
-app.use("/", messageRoutes);
+// all routes that start with /api will use the messageRoutes
+app.use("/api", messageRoutes);
 
 const PORT = process.env.PORT || 8080;
 
