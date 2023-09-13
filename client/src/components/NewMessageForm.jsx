@@ -1,19 +1,19 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 function NewMessageForm({ setMessages, setError, setLoading }) {
   const [newMessage, setNewMessage] = useState({
-    username: "",
-    message: "",
+    username: '',
+    message: '',
   });
 
   // post a new message
   async function postMessage(e) {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8080/api/messages", {
-        method: "POST",
+      const response = await fetch('http://localhost:8080/api/messages', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           username: newMessage.username,
@@ -23,25 +23,25 @@ function NewMessageForm({ setMessages, setError, setLoading }) {
       });
 
       if (!response.ok) {
-        throw new Error("Network response was not ok " + response.statusText);
+        throw new Error('Network response was not ok ' + response.statusText);
       }
 
       const data = await response.json();
 
       setMessages((prevMessages) => [...prevMessages, data]);
-      setNewMessage({ username: "", message: "" });
+      setNewMessage({ username: '', message: '' });
       setError(null);
     } catch (error) {
       setError(error.message);
-      setNewMessage({ username: "", message: "" });
+      setNewMessage({ username: '', message: '' });
     } finally {
       setLoading(false);
     }
   }
 
   return (
-    <form onSubmit={postMessage} className="flex border border-purple-300">
-      <div className="flex flex-col">
+    <form onSubmit={postMessage} className="mt-5 flex border border-purple-300">
+      <div className="flex flex-col w-full">
         <input
           type="text"
           value={newMessage.username}
@@ -52,6 +52,7 @@ function NewMessageForm({ setMessages, setError, setLoading }) {
               username: e.target.value,
             })
           }
+          className="p-2 border border-lightPurple text-darkPurple"
         />
         <input
           type="text"
@@ -63,11 +64,12 @@ function NewMessageForm({ setMessages, setError, setLoading }) {
               message: e.target.value,
             })
           }
+          className="p-2 border border-lightPurple text-darkPurple"
         />
       </div>
 
-      <button type="submit" className="border border-purple-300 p-2">
-        <i className="fa-regular fa-paper-plane text-purple-300"></i>
+      <button type="submit" className="border border-lightPurple p-5">
+        <i className="text-2xl fa-regular fa-paper-plane text-darkPurple"></i>
       </button>
     </form>
   );
