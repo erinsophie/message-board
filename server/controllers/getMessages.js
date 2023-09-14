@@ -1,4 +1,4 @@
-const Message = require("../models/MessageModel");
+const Message = require("../model/MessageModel");
 
 // query the database for all documents from the messages collection
 const getMessages = async (req, res) => {
