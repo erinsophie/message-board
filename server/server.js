@@ -10,15 +10,13 @@ connectDB();
 // start express server
 const app = express();
 
-// define which environment we are in
 const CORS_ORIGIN_DEV = process.env.CORS_ORIGIN_DEV || "http://localhost:5173";
 const CORS_ORIGIN_PROD =
   process.env.CORS_ORIGIN_PROD ||
   "https://message-board-erinsophie.netlify.app";
-  
-// set the origin based on that
+
 const currentOrigin =
-  process.env.BUILD_ENV === "production" ? CORS_ORIGIN_PROD : CORS_ORIGIN_DEV;
+  process.env.NODE_ENV === "production" ? CORS_ORIGIN_PROD : CORS_ORIGIN_DEV;
 
 // middlewares
 app.use(cors({ origin: currentOrigin }));

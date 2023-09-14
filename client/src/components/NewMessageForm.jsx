@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function NewMessageForm({ setMessages, setError, setLoading }) {
+function NewMessageForm({ url, setMessages, setError, setLoading }) {
   const [newMessage, setNewMessage] = useState({
     username: '',
     message: '',
@@ -13,7 +13,7 @@ function NewMessageForm({ setMessages, setError, setLoading }) {
     if (newMessage.username === '' || newMessage.message === '') return;
 
     try {
-      const response = await fetch('http://localhost:8080/api/messages', {
+      const response = await fetch(`${url}/api/messages`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

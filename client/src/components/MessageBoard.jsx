@@ -13,11 +13,13 @@ function MessageBoard() {
   console.log('messages');
   console.log(messages);
 
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
   useEffect(() => {
     // fetch messages
     async function getMessages() {
       try {
-        let response = await fetch('http://localhost:8080/api/messages');
+        let response = await fetch(`${API_BASE_URL}/api/messages`);
 
         if (!response.ok) {
           throw new Error('Network response was not ok ' + response.statusText);
@@ -82,6 +84,7 @@ function MessageBoard() {
       </div>
 
       <NewMessageForm
+        url={API_BASE_URL}
         setMessages={setMessages}
         setError={setError}
         setLoading={setLoading}
