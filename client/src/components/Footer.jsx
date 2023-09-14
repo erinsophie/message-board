@@ -9,14 +9,6 @@ function Footer() {
       >
         <i className="fa-brands fa-github text-base md:text-2xl"></i>
       </a>
-
-      <a
-        href="https://www.linkedin.com/in/sophie-l-4b899415a"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <i className="fa-brands fa-linkedin text-base md:text-2xl"></i>
-      </a>
     </footer>
   );
 }

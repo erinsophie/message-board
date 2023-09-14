@@ -10,9 +10,8 @@ connectDB();
 const app = express();
 
 // middlewares
-app.use(cors());
-// parses JSON back into an object before it reaches the controllers
-// so its values can be accessed
+app.use(cors({ origin: "http://localhost:5173" }));
+// parses JSON into an object before it reaches the controllers so its properties can be accessed
 app.use(express.json());
 
 // all routes that start with /api will use the messageRoutes

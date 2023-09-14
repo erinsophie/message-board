@@ -9,18 +9,24 @@ function NewMessageForm({ setMessages, setError, setLoading }) {
   // post a new message
   async function postMessage(e) {
     e.preventDefault();
+
+    if (newMessage.username === '' || newMessage.message === '') return;
+
     try {
-      const response = await fetch('http://localhost:8080/api/messages', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}/api/messages`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            username: newMessage.username,
+            message: newMessage.message,
+            date: new Date(),
+          }),
         },
-        body: JSON.stringify({
-          username: newMessage.username,
-          message: newMessage.message,
-          date: new Date(),
-        }),
-      });
+      );
 
       if (!response.ok) {
         throw new Error('Network response was not ok ' + response.statusText);
@@ -40,35 +46,35 @@ function NewMessageForm({ setMessages, setError, setLoading }) {
   }
 
   return (
-    <form onSubmit={postMessage} className="mt-5 flex border border-purple-300">
+    <form onSubmit={postMessage} className="mt-5 flex">
       <div className="flex flex-col w-full">
+        {newMessage.username === '' && <span>Required*</span>}
         <input
           type="text"
           value={newMessage.username}
           placeholder="Username"
-          onChange={(e) =>
-            setNewMessage({
-              ...newMessage,
-              username: e.target.value,
-            })
-          }
+          onChange={(e) => {
+            setNewMessage({ ...newMessage, username: e.target.value });
+          }}
           className="p-2 border border-lightPurple text-darkPurple"
         />
+
+        {newMessage.message === '' && <span>Required*</span>}
         <input
           type="text"
           value={newMessage.message}
           placeholder="Message"
-          onChange={(e) =>
-            setNewMessage({
-              ...newMessage,
-              message: e.target.value,
-            })
-          }
+          onChange={(e) => {
+            setNewMessage({ ...newMessage, message: e.target.value });
+          }}
           className="p-2 border border-lightPurple text-darkPurple"
         />
       </div>
 
-      <button type="submit" className="border border-lightPurple p-5">
+      <button
+        type="submit"
+        className="border border-lightPurple p-5 hover:bg-lightPurple"
+      >
         <i className="text-2xl fa-regular fa-paper-plane text-darkPurple"></i>
       </button>
     </form>
