@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { format, parseISO } from 'date-fns';
-import NewMessageForm from './newMessageForm';
+import NewMessageForm from './NewMessageForm';
 import Error from './Error';
 import Loading from './Loading';
 
