@@ -17,11 +17,11 @@
 
 # Goal
 
-The main goal of this project was to create my first express server, connect it to my MongoDB database and learn how to connect it with a frontend framework such as React.
+The main goal of this project was to create my first Express server, connect it to my MongoDB database and learn how to connect it with a frontend framework such as React.
 
 ## Node, Express, MongoDB
 
-Before starting this project I had only created a very small server with Express and had gone through a MongoDB course but I was feeling confused about how the server and database come together to make a full stack application, especially when React is involved. The only way I was gonna find out was by trying to do it! So this is that app. I think a message board is a very simple way to get started since it just requires 1 GET request and 1 POST request.
+Before starting this project I had only created a very small server with Express and had gone through a MongoDB course but I was feeling confused about how the server and database come together to make a full stack application, especially when React is involved. The only way I was gonna find out was by trying to do it! So this is that app. I think a message board is a very simple way to get started since it just requires 1 GET request and 1 POST request. Also, using the mongoDB Atlas makes it simple to monitor the database.
 
 I originally had all the server files in one server.js file until I gradually extracted each function out into its own directory within the server directory. I was unclear on what models, controllers and routes were actually for until I began to create the file structure myself and leart how each part comes together and why it's necessary for organisation.
 
