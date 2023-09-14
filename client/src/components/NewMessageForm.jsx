@@ -13,20 +13,17 @@ function NewMessageForm({ setMessages, setError, setLoading }) {
     if (newMessage.username === '' || newMessage.message === '') return;
 
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/api/messages`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            username: newMessage.username,
-            message: newMessage.message,
-            date: new Date(),
-          }),
+      const response = await fetch('http://localhost:8080/api/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      );
+        body: JSON.stringify({
+          username: newMessage.username,
+          message: newMessage.message,
+          date: new Date(),
+        }),
+      });
 
       if (!response.ok) {
         throw new Error('Network response was not ok ' + response.statusText);

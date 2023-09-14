@@ -1,6 +1,6 @@
 # Mini Message Board
 
-## [Live Demo](http://shopping-cart-erinsophie.netlify.app)
+## [Live Demo](http://message-board-erinsophie.netlify.app)
 
 ![Message board](./client/src/assets/img/message-board.png)
 

@@ -17,9 +17,7 @@ function MessageBoard() {
     // fetch messages
     async function getMessages() {
       try {
-        let response = await fetch(
-          `${import.meta.env.VITE_API_BASE_URL}/api/messages`,
-        );
+        let response = await fetch('http://localhost:8080/api/messages');
 
         if (!response.ok) {
           throw new Error('Network response was not ok ' + response.statusText);
