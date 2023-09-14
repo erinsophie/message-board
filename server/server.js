@@ -17,7 +17,7 @@ const CORS_ORIGIN_PROD = process.env.CORS_ORIGIN_PROD || "https://message-board-
 const currentOrigin = process.env.NODE_ENV === 'production' ? CORS_ORIGIN_PROD : CORS_ORIGIN_DEV;
 
 // middlewares
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: currentOrigin }));
 // parses JSON into an object before it reaches the controllers so its properties can be accessed
 app.use(express.json());
 
