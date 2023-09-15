@@ -4,12 +4,12 @@
 
 ![Message board](./client/src/assets/img/message-board.png)
 
-# Frontend
+## Frontend
 
 - React
 - Tailwind
 
-# Backend
+## Backend
 
 - Node
 - Express
@@ -23,7 +23,7 @@ The main goal of this project was to create my first Express server, connect it 
 
 Before starting this project I had only created a very small server with Express and had gone through a MongoDB course but I was feeling confused about how the server and database come together to make a full stack application, especially when React is involved. The only way I was gonna find out was by trying to do it! So this is that app. I think a message board is a very simple way to get started since it just requires 1 GET request and 1 POST request. Also, using the mongoDB Atlas makes it simple to monitor the database.
 
-I originally had all the server files in one server.js file until I gradually extracted each function out into its own directory within the server directory. I was unclear on what models, controllers and routes were actually for until I began to create the file structure myself and leart how each part comes together and why it's necessary for organisation.
+I originally had all the server files in one server.js file until I gradually extracted each function out into its own folder within the server directory. I was unclear on what models, controllers and routes were actually for until I began to create the file structure myself and learnt how each part comes together and why it's necessary for organisation.
 
 After using fetch to make GET requests in previous projects, it was very interesting to be responsible for syncing both the front and back end. Through formatting the response to send to the client I feel like it's given me a much better idea of how GET requests actually work and now POST requests too. This is very helpful knowledge for future projects!
 

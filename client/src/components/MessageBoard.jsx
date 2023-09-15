@@ -14,6 +14,8 @@ function MessageBoard() {
   console.log(messages);
 
   const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  console.log('url')
+  console.log(API_BASE_URL);
 
   useEffect(() => {
     // fetch messages
